@@ -1493,6 +1493,8 @@
 
 <!-- ==================== SCRIPTS ==================== -->
 <script>
+    let currentLang = 'en'; // Must be at top — shade functions use it at load time
+
     // ========== SHADE DATA ==========
     const shades = [
         { name: 'Porcelain', nameZh: '陶瓷白', hex: '#F5EDE4', undertone: 'Neutral', fit: 'Fairest skin tones', fitZh: '最白皙肤色' },
@@ -1898,8 +1900,6 @@
             'faq-a-6': '<strong>T/T 银行转账、L/C 信用证、PayPal</strong>（样品运费）和 <strong>Wise</strong>。标准条款：30% 定金启动生产，70% 发货前付清。',
         }
     };
-
-    let currentLang = 'en';
 
     function switchLang(lang, btn) {
         currentLang = lang;
