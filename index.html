@@ -1254,27 +1254,27 @@
             <form id="sampleForm">
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label>Your Name *</label>
+                        <label data-i18n="sample-name">Your Name *</label>
                         <input type="text" name="name" required placeholder="Full name">
                     </div>
                     <div class="form-group">
-                        <label>Brand / Company *</label>
+                        <label data-i18n="sample-company">Brand / Company *</label>
                         <input type="text" name="company" required placeholder="Your brand name">
                     </div>
                 </div>
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label>Email *</label>
+                        <label data-i18n="sample-email">Email *</label>
                         <input type="email" name="email" required placeholder="you@example.com">
                     </div>
                     <div class="form-group">
-                        <label>WhatsApp</label>
+                        <label data-i18n="sample-phone">WhatsApp</label>
                         <input type="tel" name="phone" placeholder="+1 234 567 890">
                     </div>
                 </div>
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label>Target Market *</label>
+                        <label data-i18n="sample-market">Target Market *</label>
                         <select name="market" required>
                             <option value="">Select...</option>
                             <option value="USA">United States</option>
@@ -1289,7 +1289,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Product Type</label>
+                        <label data-i18n="sample-type">Product Type</label>
                         <select name="product_type">
                             <option value="">Select...</option>
                             <option value="matte">Matte Foundation</option>
@@ -1301,7 +1301,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Estimated Quantity</label>
+                    <label data-i18n="sample-qty">Estimated Quantity</label>
                     <select name="quantity">
                         <option value="">Select...</option>
                         <option value="trial">200–500 units (trial)</option>
@@ -1312,11 +1312,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Additional Notes</label>
+                    <label data-i18n="sample-notes">Additional Notes</label>
                     <textarea name="notes" rows="2" placeholder="Shade preferences, packaging needs, or any questions..."></textarea>
                 </div>
                 <button type="submit" class="form-submit" data-i18n="sample-submit">Request Free Sample</button>
-                <p class="form-note">Sample is free. You cover shipping only (~$15–$35 via DHL).</p>
+                <p class="form-note" data-i18n="sample-note">Sample is free. You cover shipping only (~$15–$35 via DHL).</p>
             </form>
         </div>
 
@@ -1327,21 +1327,21 @@
             <form id="inquiryForm">
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label>Your Name *</label>
+                        <label data-i18n="inquiry-name">Your Name *</label>
                         <input type="text" name="name" required placeholder="Full name">
                     </div>
                     <div class="form-group">
-                        <label>Brand / Company *</label>
+                        <label data-i18n="inquiry-company">Brand / Company *</label>
                         <input type="text" name="company" required placeholder="Your brand name">
                     </div>
                 </div>
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label>Email *</label>
+                        <label data-i18n="inquiry-email">Email *</label>
                         <input type="email" name="email" required placeholder="you@example.com">
                     </div>
                     <div class="form-group">
-                        <label>WhatsApp</label>
+                        <label data-i18n="inquiry-phone">WhatsApp</label>
                         <input type="tel" name="phone" placeholder="For faster reply">
                     </div>
                 </div>
@@ -1358,7 +1358,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Quantity Needed *</label>
+                        <label data-i18n="inquiry-qty">Quantity Needed *</label>
                         <select name="quantity" required>
                             <option value="">Select...</option>
                             <option value="200-500">200–500 units</option>
@@ -1370,7 +1370,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>OEM / Private Label?</label>
+                    <label data-i18n="inquiry-oem">OEM / Private Label?</label>
                     <select name="oem">
                         <option value="yes-oem">Yes — OEM with custom specs</option>
                         <option value="yes-private">Yes — Private label (your formula)</option>
@@ -1378,11 +1378,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Message</label>
+                    <label data-i18n="inquiry-msg">Message</label>
                     <textarea name="message" rows="2" placeholder="Tell us about your project, target market, requirements..."></textarea>
                 </div>
                 <button type="submit" class="form-submit" data-i18n="inquiry-submit">Send Inquiry</button>
-                <p class="form-note">We reply within 24 hours — usually faster on WhatsApp.</p>
+                <p class="form-note" data-i18n="inquiry-note">We reply within 24 hours — usually faster on WhatsApp.</p>
             </form>
         </div>
     </div>
@@ -1529,12 +1529,13 @@
         document.querySelectorAll('.shade-dot').forEach(d => d.classList.remove('selected'));
         element.classList.add('selected');
         const s = shades[index];
+        const isZh = currentLang === 'zh';
         shadeInfo.innerHTML = `
             <div class="s-name">${s.name}</div>
-            <div class="s-desc">Undertone: ${s.undertone} &nbsp;·&nbsp; Best for: ${s.fit}</div>
+            <div class="s-desc">${isZh ? '底色' : 'Undertone'}: ${s.undertone} &nbsp;·&nbsp; ${isZh ? '适合' : 'Best for'}: ${s.fit}</div>
             <div style="margin-top:14px;">
                 <span style="display:inline-block;width:44px;height:44px;border-radius:50%;background:${s.hex};border:3px solid #C4956A;vertical-align:middle;"></span>
-                <span style="color:#999;font-size:12px;margin-left:10px;vertical-align:middle;">Adjustable — lighter or deeper to match your market</span>
+                <span style="color:#999;font-size:12px;margin-left:10px;vertical-align:middle;">${isZh ? '可调整 — 加深或调浅以匹配您的市场' : 'Adjustable — lighter or deeper to match your market'}</span>
             </div>
         `;
     }
@@ -1937,6 +1938,14 @@
                 el.textContent = i18n[lang][key];
             }
         });
+
+        // Refresh shade info panel
+        const selectedDot = document.querySelector('.shade-dot.selected');
+        if (selectedDot) {
+            const dots = Array.from(document.querySelectorAll('.shade-dot'));
+            const idx = dots.indexOf(selectedDot);
+            if (idx >= 0) selectShade(idx, selectedDot);
+        }
     }
 
     // Load saved language preference
