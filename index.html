@@ -1495,35 +1495,49 @@
 <script>
     // ========== SHADE DATA ==========
     const shades = [
-        { name: 'Porcelain', hex: '#F5EDE4', undertone: 'Neutral', fit: 'Fairest skin tones' },
-        { name: 'Ivory', hex: '#F3E3D0', undertone: 'Warm', fit: 'Fair skin, warm undertone' },
-        { name: 'Vanilla', hex: '#F1D9C0', undertone: 'Cool', fit: 'Fair to light skin' },
-        { name: 'Nude', hex: '#E8CCAE', undertone: 'Neutral', fit: 'Light skin tones' },
-        { name: 'Sand', hex: '#DFC09B', undertone: 'Warm', fit: 'Light to medium skin' },
-        { name: 'Buff', hex: '#D2A87A', undertone: 'Warm', fit: 'Medium warm skin' },
-        { name: 'Natural', hex: '#C89C6B', undertone: 'Neutral', fit: 'Medium skin tones' },
-        { name: 'Golden', hex: '#B8864C', undertone: 'Warm', fit: 'Medium to tan skin' },
-        { name: 'Honey', hex: '#A6743A', undertone: 'Warm', fit: 'Tan golden skin' },
-        { name: 'Caramel', hex: '#94632E', undertone: 'Neutral', fit: 'Tan to deep skin' },
-        { name: 'Toffee', hex: '#7D5230', undertone: 'Warm', fit: 'Deep skin tones' },
-        { name: 'Mocha', hex: '#6B4226', undertone: 'Cool', fit: 'Deep cool skin' },
-        { name: 'Chestnut', hex: '#5A3520', undertone: 'Warm', fit: 'Deeper skin tones' },
-        { name: 'Espresso', hex: '#492A18', undertone: 'Neutral', fit: 'Deepest skin tones' },
-        { name: 'Ebony', hex: '#3A2010', undertone: 'Warm', fit: 'Deep-dark skin tones' },
+        { name: 'Porcelain', nameZh: '陶瓷白', hex: '#F5EDE4', undertone: 'Neutral', fit: 'Fairest skin tones', fitZh: '最白皙肤色' },
+        { name: 'Ivory', nameZh: '象牙白', hex: '#F3E3D0', undertone: 'Warm', fit: 'Fair skin, warm undertone', fitZh: '白皙暖调肤色' },
+        { name: 'Vanilla', nameZh: '香草色', hex: '#F1D9C0', undertone: 'Cool', fit: 'Fair to light skin', fitZh: '白皙至浅肤色' },
+        { name: 'Nude', nameZh: '裸色', hex: '#E8CCAE', undertone: 'Neutral', fit: 'Light skin tones', fitZh: '浅肤色' },
+        { name: 'Sand', nameZh: '沙色', hex: '#DFC09B', undertone: 'Warm', fit: 'Light to medium skin', fitZh: '浅至中等肤色' },
+        { name: 'Buff', nameZh: '浅驼色', hex: '#D2A87A', undertone: 'Warm', fit: 'Medium warm skin', fitZh: '中等暖调肤色' },
+        { name: 'Natural', nameZh: '自然色', hex: '#C89C6B', undertone: 'Neutral', fit: 'Medium skin tones', fitZh: '中等肤色' },
+        { name: 'Golden', nameZh: '金麦色', hex: '#B8864C', undertone: 'Warm', fit: 'Medium to tan skin', fitZh: '中等至小麦肤色' },
+        { name: 'Honey', nameZh: '蜜色', hex: '#A6743A', undertone: 'Warm', fit: 'Tan golden skin', fitZh: '小麦金色肤色' },
+        { name: 'Caramel', nameZh: '焦糖色', hex: '#94632E', undertone: 'Neutral', fit: 'Tan to deep skin', fitZh: '小麦至深肤色' },
+        { name: 'Toffee', nameZh: '太妃糖色', hex: '#7D5230', undertone: 'Warm', fit: 'Deep skin tones', fitZh: '深肤色' },
+        { name: 'Mocha', nameZh: '摩卡色', hex: '#6B4226', undertone: 'Cool', fit: 'Deep cool skin', fitZh: '深冷调肤色' },
+        { name: 'Chestnut', nameZh: '栗色', hex: '#5A3520', undertone: 'Warm', fit: 'Deeper skin tones', fitZh: '较深肤色' },
+        { name: 'Espresso', nameZh: '浓咖色', hex: '#492A18', undertone: 'Neutral', fit: 'Deepest skin tones', fitZh: '最深肤色' },
+        { name: 'Ebony', nameZh: '乌木色', hex: '#3A2010', undertone: 'Warm', fit: 'Deep-dark skin tones', fitZh: '深暗肤色' },
     ];
 
     const shadeGrid = document.getElementById('shadeGrid');
     const shadeInfo = document.getElementById('shadeInfo');
+
+    function getShadeName(shade) {
+        return currentLang === 'zh' ? shade.nameZh : shade.name;
+    }
+    function getShadeFit(shade) {
+        return currentLang === 'zh' ? shade.fitZh : shade.fit;
+    }
 
     shades.forEach((shade, i) => {
         const dot = document.createElement('div');
         dot.className = 'shade-dot';
         dot.style.backgroundColor = shade.hex;
         dot.title = shade.name;
-        dot.innerHTML = `<span class="shade-label">${shade.name}</span>`;
+        dot.innerHTML = `<span class="shade-label">${getShadeName(shade)}</span>`;
         dot.addEventListener('click', () => selectShade(i, dot));
         shadeGrid.appendChild(dot);
     });
+
+    function refreshShadeLabels() {
+        document.querySelectorAll('.shade-dot').forEach((dot, i) => {
+            const label = dot.querySelector('.shade-label');
+            if (label && shades[i]) label.textContent = getShadeName(shades[i]);
+        });
+    }
 
     function selectShade(index, element) {
         document.querySelectorAll('.shade-dot').forEach(d => d.classList.remove('selected'));
@@ -1531,8 +1545,8 @@
         const s = shades[index];
         const isZh = currentLang === 'zh';
         shadeInfo.innerHTML = `
-            <div class="s-name">${s.name}</div>
-            <div class="s-desc">${isZh ? '底色' : 'Undertone'}: ${s.undertone} &nbsp;·&nbsp; ${isZh ? '适合' : 'Best for'}: ${s.fit}</div>
+            <div class="s-name">${isZh ? s.nameZh : s.name}</div>
+            <div class="s-desc">${isZh ? '底色' : 'Undertone'}: ${s.undertone} &nbsp;·&nbsp; ${isZh ? '适合' : 'Best for'}: ${isZh ? s.fitZh : s.fit}</div>
             <div style="margin-top:14px;">
                 <span style="display:inline-block;width:44px;height:44px;border-radius:50%;background:${s.hex};border:3px solid #C4956A;vertical-align:middle;"></span>
                 <span style="color:#999;font-size:12px;margin-left:10px;vertical-align:middle;">${isZh ? '可调整 — 加深或调浅以匹配您的市场' : 'Adjustable — lighter or deeper to match your market'}</span>
@@ -1939,7 +1953,8 @@
             }
         });
 
-        // Refresh shade info panel
+        // Refresh shade labels and info panel
+        refreshShadeLabels();
         const selectedDot = document.querySelector('.shade-dot.selected');
         if (selectedDot) {
             const dots = Array.from(document.querySelectorAll('.shade-dot'));
