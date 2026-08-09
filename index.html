@@ -512,6 +512,79 @@
         .shade-info .s-name { font-size: 20px; font-weight: 700; color: var(--accent); }
         .shade-info .s-desc { color: var(--text-secondary); font-size: 13px; margin-top: 4px; }
 
+        /* ==================== CUSTOM BUILDER ==================== */
+        .builder-wrap { background: var(--bg); padding: 80px 24px; }
+        .builder-inner { max-width: 800px; margin: 0 auto; }
+        .builder-steps { display: flex; justify-content: center; gap: 0; margin-bottom: 40px; }
+        .builder-step-indicator {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 600; color: var(--gray-light);
+            padding: 0 12px;
+        }
+        .builder-step-indicator .bs-num {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: var(--border); color: var(--gray);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: 700;
+        }
+        .builder-step-indicator.active { color: var(--dark); }
+        .builder-step-indicator.active .bs-num { background: var(--dark); color: white; }
+        .builder-step-indicator.done { color: var(--accent); }
+        .builder-step-indicator.done .bs-num { background: var(--accent); color: white; }
+        .builder-step-line { width: 30px; height: 1px; background: var(--border); align-self: center; }
+        .builder-price-badge {
+            display: inline-block; background: var(--dark); color: white;
+            padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 700;
+            margin-bottom: 32px;
+        }
+        .builder-price-badge span { color: var(--accent-light); }
+        .builder-step-content { display: none; }
+        .builder-step-content.active { display: block; }
+        .builder-option-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px; margin-bottom: 32px;
+        }
+        .builder-option {
+            background: white; border: 2px solid var(--border);
+            border-radius: var(--radius); padding: 20px;
+            cursor: pointer; transition: all 0.2s;
+            text-align: center;
+        }
+        .builder-option:hover { border-color: #ccc; }
+        .builder-option.selected { border-color: var(--dark); background: #fafafa; }
+        .builder-option .bo-icon { font-size: 32px; margin-bottom: 8px; }
+        .builder-option .bo-title { font-size: 14px; font-weight: 600; color: var(--dark); }
+        .builder-option .bo-desc { font-size: 11px; color: var(--text-secondary); margin-top: 4px; }
+        .builder-option-grid.checkbox .builder-option { text-align: left; padding: 16px 20px; }
+        .builder-option-grid.checkbox .builder-option .bo-title { font-size: 13px; }
+        .builder-option-grid.checkbox .builder-option .bo-desc { font-size: 10px; }
+        .builder-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; }
+        .builder-btn {
+            padding: 12px 28px; border-radius: 6px;
+            font-size: 14px; font-weight: 600; cursor: pointer;
+            font-family: var(--font); border: none; transition: all 0.2s;
+        }
+        .builder-btn.back { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
+        .builder-btn.next { background: var(--dark); color: white; }
+        .builder-btn.next:hover { background: #333; }
+        .builder-btn.submit { background: var(--dark); color: white; padding: 14px 40px; font-size: 15px; }
+        .builder-btn.submit:hover { background: #333; }
+        .builder-summary {
+            background: white; border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 24px; margin-bottom: 24px;
+        }
+        .builder-summary h4 { font-size: 15px; margin-bottom: 12px; color: var(--dark); }
+        .builder-summary-item {
+            display: flex; justify-content: space-between; padding: 8px 0;
+            border-bottom: 1px solid var(--border); font-size: 13px;
+        }
+        .builder-summary-item .bsi-label { color: var(--text-secondary); }
+        .builder-summary-item .bsi-value { font-weight: 600; color: var(--dark); }
+        .builder-summary-total {
+            display: flex; justify-content: space-between; padding-top: 12px;
+            font-size: 18px; font-weight: 700; color: var(--dark);
+        }
+
         /* ==================== HOW IT WORKS ==================== */
         .steps { display: flex; flex-wrap: wrap; gap: 0; justify-content: center; }
         .step-card {
@@ -826,7 +899,7 @@
     <h1 data-i18n="hero-title">Your Foundation Brand<br>Starts in <em>Our Factory</em></h1>
     <p data-i18n="hero-desc">ISO 22716 certified manufacturer. 500+ ready formulas, 15+ shade range, MOQ from 2000 units. We help indie beauty brands launch and scale — worldwide.</p>
     <div class="hero-btns">
-        <a href="#samples" class="btn-primary" data-i18n="hero-btn1">Request Free Sample</a>
+        <a href="#builder" class="btn-primary" data-i18n="hero-btn1">Request Free Sample</a>
         <a href="#inquiry" class="btn-outline" data-i18n="hero-btn2">Get Production Quote</a>
     </div>
 </header>
@@ -995,6 +1068,179 @@
         <div class="shade-info" id="shadeInfo">
             <p style="color:#999;" data-i18n="shades-hint">Click a shade above to see details</p>
         </div>
+    </div>
+</div>
+
+<!-- ==================== CUSTOM FOUNDATION BUILDER ==================== -->
+<div class="builder-wrap" id="builder">
+    <div class="builder-inner">
+        <p class="section-tag">Customize Your Foundation</p>
+        <h2 class="section-title" style="text-align:center;">Design Your Perfect Formula</h2>
+        <p class="section-subtitle" style="text-align:center;margin-left:auto;margin-right:auto;">
+            Choose your preferences below. We'll formulate a custom sample just for you.
+        </p>
+        <div style="text-align:center;">
+            <div class="builder-price-badge">Custom Sample — Only <span>$10</span></div>
+        </div>
+
+        <!-- Step indicators -->
+        <div class="builder-steps" id="stepIndicators">
+            <div class="builder-step-indicator active" data-step="1"><span class="bs-num">1</span> Shade</div>
+            <div class="builder-step-line"></div>
+            <div class="builder-step-indicator" data-step="2"><span class="bs-num">2</span> Coverage</div>
+            <div class="builder-step-line"></div>
+            <div class="builder-step-indicator" data-step="3"><span class="bs-num">3</span> Finish</div>
+            <div class="builder-step-line"></div>
+            <div class="builder-step-indicator" data-step="4"><span class="bs-num">4</span> Benefits</div>
+            <div class="builder-step-line"></div>
+            <div class="builder-step-indicator" data-step="5"><span class="bs-num">5</span> Checkout</div>
+        </div>
+
+        <!-- Collect selections -->
+        <input type="hidden" id="customShade" value="">
+        <input type="hidden" id="customCoverage" value="">
+        <input type="hidden" id="customFinish" value="">
+        <input type="hidden" id="customBenefits" value="">
+
+        <!-- Step 1: Shade -->
+        <div class="builder-step-content active" data-step="1">
+            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;">Select your skin tone shade below</p>
+            <div class="shade-grid" id="builderShadeGrid"></div>
+            <div class="shade-info" id="builderShadeInfo" style="margin-top:20px;">
+                <p style="color:#999;">Click a shade above to select</p>
+            </div>
+            <div class="builder-nav">
+                <div></div>
+                <button class="builder-btn next" onclick="builderNext(1)">Next: Choose Coverage →</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Coverage -->
+        <div class="builder-step-content" data-step="2">
+            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;">How much coverage do you want?</p>
+            <div class="builder-option-grid" id="coverageOptions">
+                <div class="builder-option" data-value="Sheer / Light">
+                    <div class="bo-icon">💧</div>
+                    <div class="bo-title">Sheer / Light</div>
+                    <div class="bo-desc">轻薄透气，裸妆感，可叠加</div>
+                </div>
+                <div class="builder-option" data-value="Medium">
+                    <div class="bo-icon">✨</div>
+                    <div class="bo-title">Medium</div>
+                    <div class="bo-desc">中等遮瑕，均匀肤色，日常自然</div>
+                </div>
+                <div class="builder-option" data-value="Full Coverage">
+                    <div class="bo-icon">🎭</div>
+                    <div class="bo-title">Full Coverage</div>
+                    <div class="bo-desc">高遮瑕，遮盖痘印色斑，持久完美</div>
+                </div>
+            </div>
+            <div class="builder-nav">
+                <button class="builder-btn back" onclick="builderPrev(2)">← Back</button>
+                <button class="builder-btn next" id="coverageNext" disabled onclick="builderNext(2)">Next: Choose Finish →</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Finish -->
+        <div class="builder-step-content" data-step="3">
+            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;">What finish do you prefer?</p>
+            <div class="builder-option-grid" id="finishOptions">
+                <div class="builder-option" data-value="Dewy / Hydrating">
+                    <div class="bo-icon">💦</div>
+                    <div class="bo-title">Dewy / Hydrating</div>
+                    <div class="bo-desc">水润光泽，保湿服帖，干皮友好</div>
+                </div>
+                <div class="builder-option" data-value="Matte / Long-Wear">
+                    <div class="bo-icon">🏜️</div>
+                    <div class="bo-title">Matte / Long-Wear</div>
+                    <div class="bo-desc">哑光控油，持妆 12 小时，油皮亲妈</div>
+                </div>
+                <div class="builder-option" data-value="Natural / Satin">
+                    <div class="bo-icon">🌸</div>
+                    <div class="bo-title">Natural / Satin</div>
+                    <div class="bo-desc">自然缎面，介于哑光和水润之间</div>
+                </div>
+            </div>
+            <div class="builder-nav">
+                <button class="builder-btn back" onclick="builderPrev(3)">← Back</button>
+                <button class="builder-btn next" id="finishNext" disabled onclick="builderNext(3)">Next: Choose Benefits →</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Benefits -->
+        <div class="builder-step-content" data-step="4">
+            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;">Any extra skin benefits? (Select all you want)</p>
+            <div class="builder-option-grid checkbox" id="benefitOptions">
+                <div class="builder-option" data-value="Oil Control">
+                    <div class="bo-title">🧴 Oil Control 控油</div>
+                    <div class="bo-desc">调节皮脂分泌，保持清爽妆面</div>
+                </div>
+                <div class="builder-option" data-value="Hydration Boost">
+                    <div class="bo-title">💧 Hydration Boost 加倍保湿</div>
+                    <div class="bo-desc">添加透明质酸，持续水润不拔干</div>
+                </div>
+                <div class="builder-option" data-value="Brightening">
+                    <div class="bo-title">✨ Brightening 提亮</div>
+                    <div class="bo-desc">含烟酰胺，改善暗沉，焕亮肤色</div>
+                </div>
+                <div class="builder-option" data-value="SPF Protection">
+                    <div class="bo-title">☀️ SPF Protection 防晒</div>
+                    <div class="bo-desc">添加物理防晒成分，日常防护</div>
+                </div>
+                <div class="builder-option" data-value="Anti-Aging">
+                    <div class="bo-title">⏳ Anti-Aging 抗老</div>
+                    <div class="bo-desc">含胜肽和维生素 E，淡化细纹</div>
+                </div>
+                <div class="builder-option" data-value="Soothing / Calming">
+                    <div class="bo-title">🌿 Soothing 舒缓</div>
+                    <div class="bo-desc">含积雪草提取物，敏感肌适用</div>
+                </div>
+            </div>
+            <div class="builder-nav">
+                <button class="builder-btn back" onclick="builderPrev(4)">← Back</button>
+                <button class="builder-btn next" onclick="builderNext(4)">Next: Review & Order →</button>
+            </div>
+        </div>
+
+        <!-- Step 5: Review + Checkout -->
+        <div class="builder-step-content" data-step="5">
+            <div class="builder-summary" id="orderSummary"></div>
+            <div class="builder-summary">
+                <h4>Your Contact Info</h4>
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" id="custName" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="custEmail" required placeholder="you@example.com">
+                    </div>
+                </div>
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label>WhatsApp *</label>
+                        <input type="tel" id="custPhone" required placeholder="+1 234 567 890">
+                    </div>
+                    <div class="form-group">
+                        <label>Brand / Company</label>
+                        <input type="text" id="custBrand" placeholder="Your brand name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Notes (optional)</label>
+                    <textarea id="custNotes" rows="2" placeholder="Any specific requirements, target market, etc..."></textarea>
+                </div>
+            </div>
+            <p style="text-align:center;color:var(--text-secondary);font-size:13px;margin-top:-16px;margin-bottom:20px;">
+                After you submit, we will contact you via WhatsApp within 24 hours to confirm details and arrange payment. Your custom sample ships within 3 business days.
+            </p>
+            <div class="builder-nav" style="justify-content:center;">
+                <button class="builder-btn back" onclick="builderPrev(5)">← Back</button>
+                <button class="builder-btn submit" onclick="submitCustomOrder()">Place Custom Order — $10</button>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -1298,7 +1544,7 @@
 <div class="cta-banner">
     <h2 data-i18n="cta-title">Ready to Launch Your Foundation Line?</h2>
     <p><span data-i18n="cta-subtitle">Free samples. Low MOQ. 500+ formulas. Let's make your brand vision real.</span></p>
-    <a href="#samples" class="btn-white">Get Your Free Sample Today</a>
+    <a href="#builder" class="btn-white">Get Your Free Sample Today</a>
 </div>
 
 <!-- ==================== FOOTER ==================== -->
@@ -1898,6 +2144,139 @@
             }
         });
     });
+
+    // ========== CUSTOM FOUNDATION BUILDER ==========
+    const builderShadeGrid = document.getElementById('builderShadeGrid');
+    const builderShadeInfo = document.getElementById('builderShadeInfo');
+
+    // Render builder shade grid (independent from main shade grid)
+    shades.forEach((shade, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'shade-dot';
+        dot.style.backgroundColor = shade.hex;
+        dot.title = shade.name;
+        dot.innerHTML = `<span class="shade-label">${getShadeName(shade)}</span>`;
+        dot.addEventListener('click', () => {
+            document.querySelectorAll('#builderShadeGrid .shade-dot').forEach(d => d.classList.remove('selected'));
+            dot.classList.add('selected');
+            document.getElementById('customShade').value = shade.name;
+            const isZh = currentLang === 'zh';
+            builderShadeInfo.innerHTML = `
+                <div class="s-name">${isZh ? shade.nameZh : shade.name}</div>
+                <div class="s-desc">${isZh ? '底色' : 'Undertone'}: ${shade.undertone} &nbsp;·&nbsp; ${isZh ? '适合' : 'Best for'}: ${isZh ? shade.fitZh : shade.fit}</div>
+            `;
+        });
+        builderShadeGrid.appendChild(dot);
+    });
+
+    // Builder step navigation
+    let builderCurrent = 1;
+    function builderGoTo(step) {
+        document.querySelectorAll('.builder-step-content').forEach(el => el.classList.remove('active'));
+        document.querySelector(`.builder-step-content[data-step="${step}"]`).classList.add('active');
+        document.querySelectorAll('.builder-step-indicator').forEach(el => {
+            const s = parseInt(el.dataset.step);
+            el.classList.remove('active', 'done');
+            if (s < step) el.classList.add('done');
+            if (s === step) el.classList.add('active');
+        });
+        builderCurrent = step;
+        if (step === 5) buildOrderSummary();
+    }
+    function builderNext(from) {
+        if (from === 1 && !document.getElementById('customShade').value) {
+            alert('Please select a shade first.');
+            return;
+        }
+        builderGoTo(from + 1);
+    }
+    function builderPrev(from) { builderGoTo(from - 1); }
+
+    // Option selection (coverage, finish, benefits)
+    document.querySelectorAll('#coverageOptions .builder-option').forEach(opt => {
+        opt.addEventListener('click', function() {
+            document.querySelectorAll('#coverageOptions .builder-option').forEach(o => o.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('customCoverage').value = this.dataset.value;
+            document.getElementById('coverageNext').disabled = false;
+        });
+    });
+    document.querySelectorAll('#finishOptions .builder-option').forEach(opt => {
+        opt.addEventListener('click', function() {
+            document.querySelectorAll('#finishOptions .builder-option').forEach(o => o.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('customFinish').value = this.dataset.value;
+            document.getElementById('finishNext').disabled = false;
+        });
+    });
+    // Benefits - multi-select checkboxes
+    document.querySelectorAll('#benefitOptions .builder-option').forEach(opt => {
+        opt.addEventListener('click', function() {
+            this.classList.toggle('selected');
+            const selected = [];
+            document.querySelectorAll('#benefitOptions .builder-option.selected').forEach(o => selected.push(o.dataset.value));
+            document.getElementById('customBenefits').value = selected.join(', ');
+        });
+    });
+
+    // Build order summary
+    function buildOrderSummary() {
+        const shade = document.getElementById('customShade').value || '—';
+        const coverage = document.getElementById('customCoverage').value || '—';
+        const finish = document.getElementById('customFinish').value || '—';
+        const benefits = document.getElementById('customBenefits').value || 'None';
+        document.getElementById('orderSummary').innerHTML = `
+            <h4>Your Custom Formula</h4>
+            <div class="builder-summary-item"><span class="bsi-label">Shade</span><span class="bsi-value">${shade}</span></div>
+            <div class="builder-summary-item"><span class="bsi-label">Coverage</span><span class="bsi-value">${coverage}</span></div>
+            <div class="builder-summary-item"><span class="bsi-label">Finish</span><span class="bsi-value">${finish}</span></div>
+            <div class="builder-summary-item"><span class="bsi-label">Benefits</span><span class="bsi-value">${benefits}</span></div>
+            <div class="builder-summary-total"><span>Custom Sample</span><span>$10.00</span></div>
+        `;
+    }
+
+    // Submit custom order
+    function submitCustomOrder() {
+        const name = document.getElementById('custName').value.trim();
+        const email = document.getElementById('custEmail').value.trim();
+        const phone = document.getElementById('custPhone').value.trim();
+        if (!name || !email || !phone) {
+            alert('Please fill in Name, Email, and WhatsApp.');
+            return;
+        }
+        const shade = document.getElementById('customShade').value || 'Not selected';
+        const coverage = document.getElementById('customCoverage').value || 'Not selected';
+        const finish = document.getElementById('customFinish').value || 'Not selected';
+        const benefits = document.getElementById('customBenefits').value || 'None';
+        const brand = document.getElementById('custBrand').value || 'N/A';
+        const notes = document.getElementById('custNotes').value || 'N/A';
+
+        const waMsg = encodeURIComponent(
+            `*New Custom Foundation Order*\n\n` +
+            `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nBrand: ${brand}\n\n` +
+            `*Formula Specs:*\n- Shade: ${shade}\n- Coverage: ${coverage}\n- Finish: ${finish}\n- Benefits: ${benefits}\n\n` +
+            `Notes: ${notes}\n\nTotal: $10.00`
+        );
+        window.open(`https://wa.me/8613149392728?text=${waMsg}`, '_blank');
+
+        showToast('Order sent via WhatsApp! We will confirm within 24 hours.');
+        document.getElementById('custName').value = '';
+        document.getElementById('custEmail').value = '';
+        document.getElementById('custPhone').value = '';
+        document.getElementById('custBrand').value = '';
+        document.getElementById('custNotes').value = '';
+        builderGoTo(1);
+    }
+
+    // Also update builder shade labels on language switch
+    const origRefreshShadeLabels = refreshShadeLabels;
+    refreshShadeLabels = function() {
+        origRefreshShadeLabels();
+        document.querySelectorAll('#builderShadeGrid .shade-dot').forEach((dot, i) => {
+            const label = dot.querySelector('.shade-label');
+            if (label && shades[i]) label.textContent = getShadeName(shades[i]);
+        });
+    };
 
     console.log('Vanya Heart — website ready.');
 </script>
