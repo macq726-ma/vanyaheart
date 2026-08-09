@@ -1074,26 +1074,26 @@
 <!-- ==================== CUSTOM FOUNDATION BUILDER ==================== -->
 <div class="builder-wrap" id="builder">
     <div class="builder-inner">
-        <p class="section-tag">Customize Your Foundation</p>
-        <h2 class="section-title" style="text-align:center;">Design Your Perfect Formula</h2>
+        <p class="section-tag" data-i18n="builder-tag">Customize Your Foundation</p>
+        <h2 class="section-title" style="text-align:center;" data-i18n="builder-title">Design Your Perfect Formula</h2>
         <p class="section-subtitle" style="text-align:center;margin-left:auto;margin-right:auto;">
-            Choose your preferences below. We'll formulate a custom sample just for you.
+            <span data-i18n="builder-subtitle">Choose your preferences below.</span> We'll formulate a custom sample just for you.
         </p>
         <div style="text-align:center;">
-            <div class="builder-price-badge">Custom Sample — Only <span>$10</span></div>
+            <div class="builder-price-badge"><span data-i18n="builder-price">Custom Sample — Only </span><span>$10</span></div>
         </div>
 
         <!-- Step indicators -->
         <div class="builder-steps" id="stepIndicators">
-            <div class="builder-step-indicator active" data-step="1"><span class="bs-num">1</span> Shade</div>
+            <div class="builder-step-indicator active" data-step="1"><span class="bs-num">1</span data-i18n="builder-step1">Shade</div>
             <div class="builder-step-line"></div>
-            <div class="builder-step-indicator" data-step="2"><span class="bs-num">2</span> Coverage</div>
+            <div class="builder-step-indicator" data-step="2"><span class="bs-num">2</span data-i18n="builder-step2">Coverage</div>
             <div class="builder-step-line"></div>
-            <div class="builder-step-indicator" data-step="3"><span class="bs-num">3</span> Finish</div>
+            <div class="builder-step-indicator" data-step="3"><span class="bs-num">3</span data-i18n="builder-step3">Finish</div>
             <div class="builder-step-line"></div>
-            <div class="builder-step-indicator" data-step="4"><span class="bs-num">4</span> Benefits</div>
+            <div class="builder-step-indicator" data-step="4"><span class="bs-num">4</span data-i18n="builder-step4">Benefits</div>
             <div class="builder-step-line"></div>
-            <div class="builder-step-indicator" data-step="5"><span class="bs-num">5</span> Checkout</div>
+            <div class="builder-step-indicator" data-step="5"><span class="bs-num">5</span data-i18n="builder-step5">Checkout</div>
         </div>
 
         <!-- Collect selections -->
@@ -1104,101 +1104,101 @@
 
         <!-- Step 1: Shade -->
         <div class="builder-step-content active" data-step="1">
-            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;">Select your skin tone shade below</p>
+            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;"><span data-i18n="builder-step1-desc">Select your skin tone shade below</span></p>
             <div class="shade-grid" id="builderShadeGrid"></div>
             <div class="shade-info" id="builderShadeInfo" style="margin-top:20px;">
                 <p style="color:#999;">Click a shade above to select</p>
             </div>
             <div class="builder-nav">
                 <div></div>
-                <button class="builder-btn next" onclick="builderNext(1)">Next: Choose Coverage →</button>
+                <button class="builder-btn next" onclick="builderNext(1)" data-i18n="builder-next1">Next: Choose Coverage →</button>
             </div>
         </div>
 
         <!-- Step 2: Coverage -->
         <div class="builder-step-content" data-step="2">
-            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;">How much coverage do you want?</p>
+            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;"><span data-i18n="builder-step2-desc">How much coverage do you want?</span></p>
             <div class="builder-option-grid" id="coverageOptions">
                 <div class="builder-option" data-value="Sheer / Light">
                     <div class="bo-icon">💧</div>
                     <div class="bo-title">Sheer / Light</div>
-                    <div class="bo-desc">轻薄透气，裸妆感，可叠加</div>
+                    <div class="bo-desc" data-i18n="builder-cov1-desc">轻薄透气，裸妆感，可叠加</div>
                 </div>
                 <div class="builder-option" data-value="Medium">
                     <div class="bo-icon">✨</div>
                     <div class="bo-title">Medium</div>
-                    <div class="bo-desc">中等遮瑕，均匀肤色，日常自然</div>
+                    <div class="bo-desc" data-i18n="builder-cov2-desc">中等遮瑕，均匀肤色，日常自然</div>
                 </div>
                 <div class="builder-option" data-value="Full Coverage">
                     <div class="bo-icon">🎭</div>
                     <div class="bo-title">Full Coverage</div>
-                    <div class="bo-desc">高遮瑕，遮盖痘印色斑，持久完美</div>
+                    <div class="bo-desc" data-i18n="builder-cov3-desc">高遮瑕，遮盖痘印色斑，持久完美</div>
                 </div>
             </div>
             <div class="builder-nav">
-                <button class="builder-btn back" onclick="builderPrev(2)">← Back</button>
-                <button class="builder-btn next" id="coverageNext" disabled onclick="builderNext(2)">Next: Choose Finish →</button>
+                <button class="builder-btn back" onclick="builderPrev(2)" data-i18n="builder-back">← Back</button>
+                <button class="builder-btn next" id="coverageNext" disabled onclick="builderNext(2)" data-i18n="builder-next2">Next: Choose Finish →</button>
             </div>
         </div>
 
         <!-- Step 3: Finish -->
         <div class="builder-step-content" data-step="3">
-            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;">What finish do you prefer?</p>
+            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;"><span data-i18n="builder-step3-desc">What finish do you prefer?</span></p>
             <div class="builder-option-grid" id="finishOptions">
                 <div class="builder-option" data-value="Dewy / Hydrating">
                     <div class="bo-icon">💦</div>
                     <div class="bo-title">Dewy / Hydrating</div>
-                    <div class="bo-desc">水润光泽，保湿服帖，干皮友好</div>
+                    <div class="bo-desc" data-i18n="builder-fin1-desc">水润光泽，保湿服帖，干皮友好</div>
                 </div>
                 <div class="builder-option" data-value="Matte / Long-Wear">
                     <div class="bo-icon">🏜️</div>
                     <div class="bo-title">Matte / Long-Wear</div>
-                    <div class="bo-desc">哑光控油，持妆 12 小时，油皮亲妈</div>
+                    <div class="bo-desc" data-i18n="builder-fin2-desc">哑光控油，持妆 12 小时，油皮亲妈</div>
                 </div>
                 <div class="builder-option" data-value="Natural / Satin">
                     <div class="bo-icon">🌸</div>
                     <div class="bo-title">Natural / Satin</div>
-                    <div class="bo-desc">自然缎面，介于哑光和水润之间</div>
+                    <div class="bo-desc" data-i18n="builder-fin3-desc">自然缎面，介于哑光和水润之间</div>
                 </div>
             </div>
             <div class="builder-nav">
-                <button class="builder-btn back" onclick="builderPrev(3)">← Back</button>
-                <button class="builder-btn next" id="finishNext" disabled onclick="builderNext(3)">Next: Choose Benefits →</button>
+                <button class="builder-btn back" onclick="builderPrev(3)" data-i18n="builder-back">← Back</button>
+                <button class="builder-btn next" id="finishNext" disabled onclick="builderNext(3)" data-i18n="builder-next3">Next: Choose Benefits →</button>
             </div>
         </div>
 
         <!-- Step 4: Benefits -->
         <div class="builder-step-content" data-step="4">
-            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;">Any extra skin benefits? (Select all you want)</p>
+            <p style="text-align:center;color:var(--text-secondary);margin-bottom:20px;"><span data-i18n="builder-step4-desc">Any extra skin benefits?</span> (Select all you want)</p>
             <div class="builder-option-grid checkbox" id="benefitOptions">
                 <div class="builder-option" data-value="Oil Control">
                     <div class="bo-title">🧴 Oil Control 控油</div>
-                    <div class="bo-desc">调节皮脂分泌，保持清爽妆面</div>
+                    <div class="bo-desc" data-i18n="builder-ben1-desc">调节皮脂分泌，保持清爽妆面</div>
                 </div>
                 <div class="builder-option" data-value="Hydration Boost">
                     <div class="bo-title">💧 Hydration Boost 加倍保湿</div>
-                    <div class="bo-desc">添加透明质酸，持续水润不拔干</div>
+                    <div class="bo-desc" data-i18n="builder-ben2-desc">添加透明质酸，持续水润不拔干</div>
                 </div>
                 <div class="builder-option" data-value="Brightening">
                     <div class="bo-title">✨ Brightening 提亮</div>
-                    <div class="bo-desc">含烟酰胺，改善暗沉，焕亮肤色</div>
+                    <div class="bo-desc" data-i18n="builder-ben3-desc">含烟酰胺，改善暗沉，焕亮肤色</div>
                 </div>
                 <div class="builder-option" data-value="SPF Protection">
                     <div class="bo-title">☀️ SPF Protection 防晒</div>
-                    <div class="bo-desc">添加物理防晒成分，日常防护</div>
+                    <div class="bo-desc" data-i18n="builder-ben4-desc">添加物理防晒成分，日常防护</div>
                 </div>
                 <div class="builder-option" data-value="Anti-Aging">
                     <div class="bo-title">⏳ Anti-Aging 抗老</div>
-                    <div class="bo-desc">含胜肽和维生素 E，淡化细纹</div>
+                    <div class="bo-desc" data-i18n="builder-ben5-desc">含胜肽和维生素 E，淡化细纹</div>
                 </div>
                 <div class="builder-option" data-value="Soothing / Calming">
                     <div class="bo-title">🌿 Soothing 舒缓</div>
-                    <div class="bo-desc">含积雪草提取物，敏感肌适用</div>
+                    <div class="bo-desc" data-i18n="builder-ben6-desc">含积雪草提取物，敏感肌适用</div>
                 </div>
             </div>
             <div class="builder-nav">
-                <button class="builder-btn back" onclick="builderPrev(4)">← Back</button>
-                <button class="builder-btn next" onclick="builderNext(4)">Next: Review & Order →</button>
+                <button class="builder-btn back" onclick="builderPrev(4)" data-i18n="builder-back">← Back</button>
+                <button class="builder-btn next" onclick="builderNext(4)" data-i18n="builder-next4">Next: Review >Next: Review & Order →< Order →</button>
             </div>
         </div>
 
@@ -1206,38 +1206,38 @@
         <div class="builder-step-content" data-step="5">
             <div class="builder-summary" id="orderSummary"></div>
             <div class="builder-summary">
-                <h4>Your Contact Info</h4>
+                <h4 data-i18n="builder-contact-title">Your Contact Info</h4>
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label>Name *</label>
+                        <label data-i18n="builder-form-name">Name *</label>
                         <input type="text" id="custName" required placeholder="Your full name">
                     </div>
                     <div class="form-group">
-                        <label>Email *</label>
+                        <label data-i18n="builder-form-email">Email *</label>
                         <input type="email" id="custEmail" required placeholder="you@example.com">
                     </div>
                 </div>
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label>WhatsApp *</label>
+                        <label data-i18n="builder-form-phone">WhatsApp *</label>
                         <input type="tel" id="custPhone" required placeholder="+1 234 567 890">
                     </div>
                     <div class="form-group">
-                        <label>Brand / Company</label>
+                        <label data-i18n="builder-form-brand">Brand / Company</label>
                         <input type="text" id="custBrand" placeholder="Your brand name">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Notes (optional)</label>
+                    <label data-i18n="builder-form-notes">Notes (optional)</label>
                     <textarea id="custNotes" rows="2" placeholder="Any specific requirements, target market, etc..."></textarea>
                 </div>
             </div>
             <p style="text-align:center;color:var(--text-secondary);font-size:13px;margin-top:-16px;margin-bottom:20px;">
-                After you submit, we will contact you via WhatsApp within 24 hours to confirm details and arrange payment. Your custom sample ships within 3 business days.
+                <span data-i18n="builder-checkout-note">After you submit, we will contact you via WhatsApp within 24 hours to confirm details and arrange payment. Your custom sample ships within 3 business days.</span>
             </p>
             <div class="builder-nav" style="justify-content:center;">
-                <button class="builder-btn back" onclick="builderPrev(5)">← Back</button>
-                <button class="builder-btn submit" onclick="submitCustomOrder()">Place Custom Order — $10</button>
+                <button class="builder-btn back" onclick="builderPrev(5)" data-i18n="builder-back">← Back</button>
+                <button class="builder-btn submit" onclick="submitCustomOrder()" data-i18n="builder-submit-btn">Place Custom Order — $10</button>
             </div>
         </div>
 
@@ -1363,7 +1363,7 @@
                 </div>
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label data-i18n="sample-email">Email *</label>
+                        <label data-i18n="sample-email" data-i18n="builder-form-email">Email *</label>
                         <input type="email" name="email" required placeholder="you@example.com">
                     </div>
                     <div class="form-group">
@@ -1436,7 +1436,7 @@
                 </div>
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label data-i18n="inquiry-email">Email *</label>
+                        <label data-i18n="inquiry-email" data-i18n="builder-form-email">Email *</label>
                         <input type="email" name="email" required placeholder="you@example.com">
                     </div>
                     <div class="form-group">
@@ -1827,6 +1827,42 @@
             'ph-select-type': 'Select...',
             'ph-select-qty': 'Select...',
             'ph-select-oem': 'Select...',
+            // Builder
+            'builder-tag': 'Customize Your Foundation',
+            'builder-title': 'Design Your Perfect Formula',
+            'builder-subtitle': 'Choose your preferences below. We\'ll formulate a custom sample just for you.',
+            'builder-price': 'Custom Sample — Only ',
+            'builder-step1': 'Shade', 'builder-step2': 'Coverage', 'builder-step3': 'Finish', 'builder-step4': 'Benefits', 'builder-step5': 'Checkout',
+            'builder-step1-desc': 'Select your skin tone shade below',
+            'builder-step2-desc': 'How much coverage do you want?',
+            'builder-step3-desc': 'What finish do you prefer?',
+            'builder-step4-desc': 'Any extra skin benefits? (Select all you want)',
+            'builder-cov1-desc': 'Sheer, breathable, natural look. Buildable.',
+            'builder-cov2-desc': 'Medium coverage, evens skin tone. Natural daily wear.',
+            'builder-cov3-desc': 'Full coverage, conceals blemishes. Long-lasting perfection.',
+            'builder-fin1-desc': 'Dewy glow, hydrating. Great for dry skin.',
+            'builder-fin2-desc': 'Matte oil-control. 12-hour wear. Perfect for oily skin.',
+            'builder-fin3-desc': 'Natural satin finish. Between matte and dewy.',
+            'builder-ben1-desc': 'Regulates sebum, keeps makeup fresh.',
+            'builder-ben2-desc': 'Hyaluronic acid for all-day hydration.',
+            'builder-ben3-desc': 'Niacinamide to brighten dull skin tone.',
+            'builder-ben4-desc': 'Physical sunscreen for daily protection.',
+            'builder-ben5-desc': 'Peptides & vitamin E to smooth fine lines.',
+            'builder-ben6-desc': 'Centella asiatica extract. Suitable for sensitive skin.',
+            'builder-summary-title': 'Your Custom Formula',
+            'builder-contact-title': 'Your Contact Info',
+            'builder-checkout-note': 'After you submit, we will contact you via WhatsApp within 24 hours to confirm details and arrange payment. Your custom sample ships within 3 business days.',
+            'builder-submit-btn': 'Place Custom Order — $10',
+            'builder-next1': 'Next: Choose Coverage →',
+            'builder-next2': 'Next: Choose Finish →',
+            'builder-next3': 'Next: Choose Benefits →',
+            'builder-next4': 'Next: Review & Order →',
+            'builder-back': '← Back',
+            'builder-form-name': 'Name *',
+            'builder-form-email': 'Email *',
+            'builder-form-phone': 'WhatsApp *',
+            'builder-form-brand': 'Brand / Company',
+            'builder-form-notes': 'Notes (optional)',
             // FAQ
             'faq-q-0': 'What is the minimum order quantity (MOQ)?',
             'faq-a-0': 'MOQ is <strong>2000 units</strong> for existing formulas. Custom formula development starts at 1000 units. We understand indie brands need flexibility — we\'ll find a quantity that works for you.',
@@ -1982,6 +2018,42 @@
             'ph-select-type': '请选择...',
             'ph-select-qty': '请选择...',
             'ph-select-oem': '请选择...',
+            // Builder
+            'builder-tag': '定制您的粉底液',
+            'builder-title': '设计您的专属配方',
+            'builder-subtitle': '选择您的偏好，我们为您定制专属样品。',
+            'builder-price': '定制样品 — 仅需 ',
+            'builder-step1': '色号', 'builder-step2': '遮瑕度', 'builder-step3': '妆效', 'builder-step4': '功效', 'builder-step5': '下单',
+            'builder-step1-desc': '选择您的肤色色号',
+            'builder-step2-desc': '您想要多高的遮瑕力？',
+            'builder-step3-desc': '您喜欢什么样的妆效？',
+            'builder-step4-desc': '需要额外功效吗？（可多选）',
+            'builder-cov1-desc': '轻薄透气，裸妆感，可叠加',
+            'builder-cov2-desc': '中等遮瑕，均匀肤色，日常自然',
+            'builder-cov3-desc': '高遮瑕，遮盖痘印色斑，持久完美',
+            'builder-fin1-desc': '水润光泽，保湿服帖，干皮友好',
+            'builder-fin2-desc': '哑光控油，持妆 12 小时，油皮亲妈',
+            'builder-fin3-desc': '自然缎面，介于哑光和水润之间',
+            'builder-ben1-desc': '调节皮脂分泌，保持清爽妆面',
+            'builder-ben2-desc': '添加透明质酸，持续水润不拔干',
+            'builder-ben3-desc': '含烟酰胺，改善暗沉，焕亮肤色',
+            'builder-ben4-desc': '添加物理防晒成分，日常防护',
+            'builder-ben5-desc': '含胜肽和维生素 E，淡化细纹',
+            'builder-ben6-desc': '含积雪草提取物，敏感肌适用',
+            'builder-summary-title': '您的定制配方',
+            'builder-contact-title': '您的联系方式',
+            'builder-checkout-note': '提交后，我们将在 24 小时内通过 WhatsApp 联系您确认细节并安排付款。定制样品 3 个工作日内发货。',
+            'builder-submit-btn': '提交定制订单 — $10',
+            'builder-next1': '下一步：选择遮瑕度 →',
+            'builder-next2': '下一步：选择妆效 →',
+            'builder-next3': '下一步：选择功效 →',
+            'builder-next4': '下一步：确认并下单 →',
+            'builder-back': '← 返回',
+            'builder-form-name': '姓名 *',
+            'builder-form-email': '邮箱 *',
+            'builder-form-phone': 'WhatsApp *',
+            'builder-form-brand': '品牌 / 公司',
+            'builder-form-notes': '备注（选填）',
             // FAQ
             'faq-q-0': '起订量（MOQ）是多少？',
             'faq-a-0': '现有配方起订量为 <strong>2000 支</strong>。定制配方开发起订量为 1000 支。我们理解独立品牌需要灵活性——我们会找到适合您的数量。',
@@ -2226,7 +2298,7 @@
         const finish = document.getElementById('customFinish').value || '—';
         const benefits = document.getElementById('customBenefits').value || 'None';
         document.getElementById('orderSummary').innerHTML = `
-            <h4>Your Custom Formula</h4>
+            <h4 data-i18n="builder-summary-title">Your Custom Formula</h4>
             <div class="builder-summary-item"><span class="bsi-label">Shade</span><span class="bsi-value">${shade}</span></div>
             <div class="builder-summary-item"><span class="bsi-label">Coverage</span><span class="bsi-value">${coverage}</span></div>
             <div class="builder-summary-item"><span class="bsi-label">Finish</span><span class="bsi-value">${finish}</span></div>
