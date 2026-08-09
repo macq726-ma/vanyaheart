@@ -496,11 +496,13 @@
             box-shadow: 0 0 0 5px rgba(139,126,116,0.15);
         }
         .shade-label {
-            position: absolute; bottom: -26px; left: 50%;
+            position: absolute; bottom: -28px; left: 50%;
             transform: translateX(-50%);
             font-size: 9px; color: var(--gray);
             white-space: nowrap; font-weight: 600; letter-spacing: 0.3px;
         }
+        /* Builder shade grid needs extra bottom margin to prevent label overlap */
+        #builderShadeGrid { margin-bottom: 50px; }
         .shade-info {
             text-align: center; min-height: 90px;
             background: white;
@@ -1056,21 +1058,6 @@
     </div>
 </div>
 
-<!-- ==================== SHADE SELECTOR ==================== -->
-<div class="shade-wrap" id="shades">
-    <div class="shade-inner">
-        <p class="section-tag" data-i18n="shades-tag">Shade Range</p>
-        <h2 class="section-title" style="text-align:center;" data-i18n="shades-title">15 Shades. Every Skin Tone.</h2>
-        <p class="section-subtitle" style="text-align:center;margin-left:auto;margin-right:auto;" data-i18n="shades-subtitle">
-            Click any shade to explore. We customize tone, undertone, and depth for your target market.
-        </p>
-        <div class="shade-grid" id="shadeGrid"></div>
-        <div class="shade-info" id="shadeInfo">
-            <p style="color:#999;" data-i18n="shades-hint">Click a shade above to see details</p>
-        </div>
-    </div>
-</div>
-
 <!-- ==================== CUSTOM FOUNDATION BUILDER ==================== -->
 <div class="builder-wrap" id="builder">
     <div class="builder-inner">
@@ -1345,80 +1332,7 @@
 
 <!-- ==================== FORMS ==================== -->
 <section id="forms">
-    <div class="forms-row">
-        <!-- SAMPLE REQUEST -->
-        <div class="form-card" id="samples">
-            <h3 data-i18n="sample-title">Request Free Sample</h3>
-            <p class="fs" data-i18n="sample-subtitle">Test our quality before committing. Samples ship within 3 business days.</p>
-            <form id="sampleForm">
-                <div class="form-row-2">
-                    <div class="form-group">
-                        <label data-i18n="sample-name">Your Name *</label>
-                        <input type="text" name="name" required placeholder="Full name">
-                    </div>
-                    <div class="form-group">
-                        <label data-i18n="sample-company">Brand / Company *</label>
-                        <input type="text" name="company" required placeholder="Your brand name">
-                    </div>
-                </div>
-                <div class="form-row-2">
-                    <div class="form-group">
-                        <label data-i18n="sample-email" data-i18n="builder-form-email">Email *</label>
-                        <input type="email" name="email" required placeholder="you@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label data-i18n="sample-phone">WhatsApp</label>
-                        <input type="tel" name="phone" placeholder="+1 234 567 890">
-                    </div>
-                </div>
-                <div class="form-row-2">
-                    <div class="form-group">
-                        <label data-i18n="sample-market">Target Market *</label>
-                        <select name="market" required>
-                            <option value="">Select...</option>
-                            <option value="USA">United States</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="Australia">Australia</option>
-                            <option value="Canada">Canada</option>
-                            <option value="UAE">UAE / Middle East</option>
-                            <option value="SEA">Southeast Asia</option>
-                            <option value="Europe">Europe</option>
-                            <option value="Africa">Africa</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label data-i18n="sample-type">Product Type</label>
-                        <select name="product_type">
-                            <option value="">Select...</option>
-                            <option value="matte">Matte Foundation</option>
-                            <option value="dewy">Dewy Foundation</option>
-                            <option value="serum">Serum Foundation</option>
-                            <option value="full">Full Coverage Foundation</option>
-                            <option value="unsure">Not Sure — Recommend</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label data-i18n="sample-qty">Estimated Quantity</label>
-                    <select name="quantity">
-                        <option value="">Select...</option>
-                        <option value="trial">2000–3000 units (trial)</option>
-                        <option value="small">500–2,000 units</option>
-                        <option value="medium">2,000–5,000 units</option>
-                        <option value="large">5,000+ units</option>
-                        <option value="sampling">Just sampling for now</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label data-i18n="sample-notes">Additional Notes</label>
-                    <textarea name="notes" rows="2" placeholder="Shade preferences, packaging needs, or any questions..."></textarea>
-                </div>
-                <button type="submit" class="form-submit" data-i18n="sample-submit">Request Free Sample</button>
-                <p class="form-note" data-i18n="sample-note">Sample is free. You cover shipping only (~$15–$35 via DHL).</p>
-            </form>
-        </div>
-
+    <div class="forms-row" style="max-width:600px;margin:0 auto;">
         <!-- INQUIRY FORM -->
         <div class="form-card" id="inquiry">
             <h3 data-i18n="inquiry-title">Get a Quote</h3>
@@ -1613,9 +1527,7 @@
         { name: 'Ebony', nameZh: '乌木色', hex: '#3A2010', undertone: 'Warm', fit: 'Deep-dark skin tones', fitZh: '深暗肤色' },
     ];
 
-    const shadeGrid = document.getElementById('shadeGrid');
-    const shadeInfo = document.getElementById('shadeInfo');
-
+    // Shade helper functions (used by builder)
     function getShadeName(shade) {
         return currentLang === 'zh' ? shade.nameZh : shade.name;
     }
@@ -1623,43 +1535,12 @@
         return currentLang === 'zh' ? shade.fitZh : shade.fit;
     }
 
-    shades.forEach((shade, i) => {
-        const dot = document.createElement('div');
-        dot.className = 'shade-dot';
-        dot.style.backgroundColor = shade.hex;
-        dot.title = shade.name;
-        dot.innerHTML = `<span class="shade-label">${getShadeName(shade)}</span>`;
-        dot.addEventListener('click', () => selectShade(i, dot));
-        shadeGrid.appendChild(dot);
-    });
-
     function refreshShadeLabels() {
         document.querySelectorAll('.shade-dot').forEach((dot, i) => {
             const label = dot.querySelector('.shade-label');
             if (label && shades[i]) label.textContent = getShadeName(shades[i]);
         });
     }
-
-    function selectShade(index, element) {
-        document.querySelectorAll('.shade-dot').forEach(d => d.classList.remove('selected'));
-        element.classList.add('selected');
-        const s = shades[index];
-        const isZh = currentLang === 'zh';
-        shadeInfo.innerHTML = `
-            <div class="s-name">${isZh ? s.nameZh : s.name}</div>
-            <div class="s-desc">${isZh ? '底色' : 'Undertone'}: ${s.undertone} &nbsp;·&nbsp; ${isZh ? '适合' : 'Best for'}: ${isZh ? s.fitZh : s.fit}</div>
-            <div style="margin-top:14px;">
-                <span style="display:inline-block;width:44px;height:44px;border-radius:50%;background:${s.hex};border:3px solid #C4956A;vertical-align:middle;"></span>
-                <span style="color:#999;font-size:12px;margin-left:10px;vertical-align:middle;">${isZh ? '可调整 — 加深或调浅以匹配您的市场' : 'Adjustable — lighter or deeper to match your market'}</span>
-            </div>
-        `;
-    }
-
-    // Pre-select middle shade
-    setTimeout(() => {
-        const dots = document.querySelectorAll('.shade-dot');
-        if (dots[7]) dots[7].click();
-    }, 100);
 
     // ========== MOBILE MENU ==========
     const menuToggle = document.getElementById('menuToggle');
@@ -2193,11 +2074,6 @@
         setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 3000);
         form.reset();
     }
-
-    document.getElementById('sampleForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        handleFormSubmit(this, 'sample_request');
-    });
 
     document.getElementById('inquiryForm').addEventListener('submit', function(e) {
         e.preventDefault();
