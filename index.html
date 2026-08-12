@@ -1022,6 +1022,7 @@
             </div>
             <div style="text-align:center;margin-bottom:24px;">
                 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=macq726@gmail.com&amount=20&currency_code=USD&item_name=Custom+Foundation+Sample+-+Vanya+Heart&no_shipping=1&return=https://vanyaheart.com&cancel_return=https://vanyaheart.com"
+                   id="paypalBtn"
                    target="_blank"
                    style="display:inline-flex;align-items:center;gap:8px;background:#0070BA;color:white;padding:14px 36px;border-radius:6px;font-size:16px;font-weight:700;text-decoration:none;transition:all 0.2s;"
                    onmouseover="this.style.background='#005ea6'"
@@ -1999,6 +2000,33 @@
         document.getElementById('custNotes').value = '';
         builderGoTo(1);
     }
+
+    // PayPal button: send WhatsApp first, then redirect to PayPal
+    document.getElementById('paypalBtn').addEventListener('click', function(e) {
+        const name = document.getElementById('custName').value.trim();
+        const phone = document.getElementById('custPhone').value.trim();
+        if (!name || !phone) {
+            e.preventDefault();
+            alert('Please fill in your Name and WhatsApp first so we can contact you.');
+            return;
+        }
+        // Build and send WhatsApp message before PayPal redirect
+        const shade = document.getElementById('customShade').value || 'Not selected';
+        const coverage = document.getElementById('customCoverage').value || 'Not selected';
+        const finish = document.getElementById('customFinish').value || 'Not selected';
+        const benefits = document.getElementById('customBenefits').value || 'None';
+        const brand = document.getElementById('custBrand').value || 'N/A';
+        const notes = document.getElementById('custNotes').value || 'N/A';
+        const email = document.getElementById('custEmail').value || 'N/A';
+        const waMsg = encodeURIComponent(
+            `*New Custom Foundation Order - PAID*\n\n` +
+            `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nBrand: ${brand}\n\n` +
+            `*Formula Specs:*\n- Shade: ${shade}\n- Coverage: ${coverage}\n- Finish: ${finish}\n- Benefits: ${benefits}\n\n` +
+            `Notes: ${notes}\n\nAmount: $20.00 (Paid via PayPal)`
+        );
+        window.open(`https://wa.me/8613149392728?text=${waMsg}`, '_blank');
+        showToast('Order info sent! Redirecting to PayPal...');
+    });
 
     // Also update builder shade labels on language switch
     const origRefreshShadeLabels = refreshShadeLabels;
