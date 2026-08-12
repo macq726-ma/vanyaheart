@@ -55,17 +55,18 @@
 
     <style>
         :root {
-            --accent: #C9A96E;
-            --accent-dark: #A8884E;
-            --accent-light: #FBF6EE;
+            --accent: #C77D7D;
+            --accent-dark: #A66060;
+            --accent-light: #FDF6F5;
+            --accent-glow: rgba(199,125,125,0.2);
             --dark: #1a1a1a;
             --text: #2d2d2d;
             --text-secondary: #7a7a7a;
             --gray: #999;
             --gray-light: #c8c8c8;
-            --bg: #FFFBF6;
-            --white: #FFFEFC;
-            --border: #ede6db;
+            --bg: #FFFAFA;
+            --white: #FFFDFD;
+            --border: #f0e6e5;
             --radius: 8px;
             --radius-lg: 12px;
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
@@ -139,7 +140,7 @@
             font-family: var(--font);
         }
         .lang-switch button.active {
-            background: var(--accent);
+            background: linear-gradient(135deg, #D4918A, var(--accent));
             color: white;
         }
 
@@ -150,7 +151,7 @@
         .hero {
             padding: 140px 24px 80px;
             text-align: center;
-            background: linear-gradient(180deg, #FFFCF7 0%, var(--white) 100%);
+            background: linear-gradient(180deg, #FFF8F6 0%, var(--white) 100%);
             position: relative; overflow: hidden;
         }
         .hero-badge {
@@ -190,7 +191,7 @@
             font-family: var(--font);
         }
         .btn-primary {
-            background: var(--accent); color: white;
+            background: linear-gradient(135deg, #D4918A, var(--accent)); color: white;
         }
         .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
         .btn-outline {
@@ -283,7 +284,7 @@
 
         /* ==================== CERTIFICATIONS ==================== */
         .certs-section {
-            background: var(--bg);
+            background: #FFFAF8;
             padding: 70px 24px;
         }
         .certs-inner { max-width: 1100px; margin: 0 auto; }
@@ -322,7 +323,7 @@
 
         /* ==================== SHADE SELECTOR ==================== */
         .shade-wrap {
-            background: var(--bg);
+            background: #FFFAF8;
             padding: 90px 24px;
         }
         .shade-inner { max-width: 1100px; margin: 0 auto; }
@@ -369,7 +370,7 @@
         .shade-info .s-desc { color: var(--text-secondary); font-size: 13px; margin-top: 4px; }
 
         /* ==================== CUSTOM BUILDER ==================== */
-        .builder-wrap { background: var(--bg); padding: 80px 24px; }
+        .builder-wrap { background: #FFFAF8; padding: 80px 24px; }
         .builder-inner { max-width: 800px; margin: 0 auto; }
         .builder-steps { display: flex; justify-content: center; gap: 0; margin-bottom: 40px; }
         .builder-step-indicator {
@@ -384,12 +385,12 @@
             font-size: 12px; font-weight: 700;
         }
         .builder-step-indicator.active { color: var(--dark); }
-        .builder-step-indicator.active .bs-num { background: var(--accent); color: white; }
+        .builder-step-indicator.active .bs-num { background: linear-gradient(135deg, #D4918A, var(--accent)); color: white; }
         .builder-step-indicator.done { color: var(--accent); }
-        .builder-step-indicator.done .bs-num { background: var(--accent); color: white; }
+        .builder-step-indicator.done .bs-num { background: linear-gradient(135deg, #D4918A, var(--accent)); color: white; }
         .builder-step-line { width: 30px; height: 1px; background: var(--border); align-self: center; }
         .builder-price-badge {
-            display: inline-block; background: var(--accent); color: white;
+            display: inline-block; background: linear-gradient(135deg, #D4918A, var(--accent)); color: white;
             padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 700;
             margin-bottom: 32px;
         }
@@ -421,9 +422,9 @@
             font-family: var(--font); border: none; transition: all 0.2s;
         }
         .builder-btn.back { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
-        .builder-btn.next { background: var(--accent); color: white; }
+        .builder-btn.next { background: linear-gradient(135deg, #D4918A, var(--accent)); color: white; }
         .builder-btn.next:hover { background: #333; }
-        .builder-btn.submit { background: var(--accent); color: white; padding: 14px 40px; font-size: 15px; }
+        .builder-btn.submit { background: linear-gradient(135deg, #D4918A, var(--accent)); color: white; padding: 14px 40px; font-size: 15px; }
         .builder-btn.submit:hover { background: #333; }
         .builder-summary {
             background: white; border: 1px solid var(--border);
@@ -461,7 +462,7 @@
         .step-connector {
             position: absolute; top: 52px; right: -12px;
             width: 24px; height: 1.5px;
-            background: var(--accent); display: none;
+            background: linear-gradient(135deg, #D4918A, var(--accent)); display: none;
         }
         @media (min-width: 900px) {
             .step-connector { display: block; }
@@ -572,7 +573,7 @@
         .form-note { margin-top: 12px; font-size: 11px; color: var(--gray); text-align: center; }
 
         /* ==================== FAQ ==================== */
-        .faq-wrap { background: var(--bg); padding: 90px 24px; }
+        .faq-wrap { background: #FFFAF8; padding: 90px 24px; }
         .faq-inner { max-width: 750px; margin: 0 auto; }
         .faq-item {
             background: white;
@@ -595,8 +596,8 @@
             user-select: none;
             position: relative;
         }
-        .faq-q::after { content: ''; width: 18px; height: 2px; background: var(--accent); transition: all 0.3s; position: relative; }
-        .faq-q::before { content: ''; position: absolute; right: 33px; width: 2px; height: 18px; background: var(--accent); transition: all 0.3s; }
+        .faq-q::after { content: ''; width: 18px; height: 2px; background: linear-gradient(135deg, #D4918A, var(--accent)); transition: all 0.3s; position: relative; }
+        .faq-q::before { content: ''; position: absolute; right: 33px; width: 2px; height: 18px; background: linear-gradient(135deg, #D4918A, var(--accent)); transition: all 0.3s; }
         .faq-item.open .faq-q::before { transform: rotate(90deg); opacity: 0; }
         .faq-a {
             padding: 0 24px;
@@ -617,7 +618,7 @@
         }
         .cta-banner h2 { font-size: clamp(26px, 4vw, 34px); font-weight: 800; margin-bottom: 12px; color: var(--dark); }
         .cta-banner p { font-size: 16px; color: var(--text-secondary); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .btn-white { background: var(--accent); color: white; font-size: 15px; font-weight: 700; }
+        .btn-white { background: linear-gradient(135deg, #D4918A, var(--accent)); color: white; font-size: 15px; font-weight: 700; }
         .btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 
         /* ==================== FOOTER ==================== */
