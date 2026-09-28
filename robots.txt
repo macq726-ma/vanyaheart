@@ -1,4 +1,89 @@
-User-agent: *
+# robots.txt —— AI 抓取放行 + 站点索引(由 geo-seo-suite 生成)
+# 原理: 越早对答案引擎开门, 内容越容易被直接收录。
+# 注意: 只放行索引与问答类抓取器, 不放行训练型抓取(如需训练许可自行加)。
+
+# OpenAI 训练/抓取
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT 搜索索引
+User-agent: OAI-SearchBot
+Allow: /
+
+# ChatGPT 现场取页
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic 抓取
+User-agent: ClaudeBot
+Allow: /
+
+# Claude 网页
+User-agent: Claude-Web
+Allow: /
+
+# Claude 搜索
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity 索引
+User-agent: PerplexityBot
+Allow: /
+
+# Perplexity 现场取页
+User-agent: Perplexity-User
+Allow: /
+
+# 字节/豆包
+User-agent: Bytespider
+Allow: /
+
+# Google AI
+User-agent: Google-Extended
+Allow: /
+
+# Apple AI
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# 百度(文心)
+User-agent: Baiduspider
+Allow: /
+
+# 搜狗
+User-agent: Sogou web spider
+Allow: /
+
+# 神马
+User-agent: YisouSpider
+Allow: /
+
+# 360
+User-agent: 360Spider
+Allow: /
+
+# Bing(Copilot)
+User-agent: Bingbot
+Allow: /
+
+# Google(Gemini)
+User-agent: Googlebot
+Allow: /
+
+# Brave(Claude 上游)
+User-agent: Bravebot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
 Allow: /
 
 Sitemap: https://vanyaheart.com/sitemap.xml
